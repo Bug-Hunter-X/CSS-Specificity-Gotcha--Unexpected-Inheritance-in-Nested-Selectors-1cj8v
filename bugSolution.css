@@ -1,0 +1,34 @@
+To resolve this issue, ensure the `div p` selector has a higher specificity. The simplest solution is to either use the `!important` flag or to make the selector more specific (though `!important` should be used sparingly). 
+
+Here's the corrected CSS:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green !important; /* Using !important (use cautiously) */
+}
+```
+
+Alternatively, a more specific selector could be used (though it may not always be practical or desirable):
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div > p { /*Using a child combinator to make the selector more specific */
+  color: green;
+}
+```
+This illustrates the potential pitfalls of relying solely on apparent selector nesting for specificity and underscores the importance of comprehending CSS specificity rules.

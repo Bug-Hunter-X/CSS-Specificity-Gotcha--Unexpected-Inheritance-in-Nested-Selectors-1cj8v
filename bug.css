@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an uncommon issue related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This rule is less specific than expected */
+}
+```
+
+The unexpected behavior lies in the fact that the `div p` selector, while seemingly more specific than just `p`, may not always override the `p` selector's style due to CSS specificity rules.  Depending on the location of the stylesheets or the order of declarations, the `color: red` may still apply. This happens because although `div p` targets a more specific element combination, the overall specificity calculation can still favor the `p` selector, specifically if there are other rules impacting the `p` element.
+
+This can be easily overlooked if one assumes that nested selectors automatically have higher specificity.
